@@ -22,8 +22,8 @@ from django.contrib.staticfiles import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('file_manager.folder.urls', namespace='main')),
-    # path('folder/', include('file_manager.folder.urls', namespace='folder')),
-    # path('file/', include('file_manager.file.urls', namespace='file')),
+    path('folder/', include('file_manager.folder.urls', namespace='folder')),
+    path('file/', include('file_manager.file.urls', namespace='file')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

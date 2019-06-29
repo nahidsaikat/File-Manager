@@ -31,11 +31,11 @@
 
             <ul class="list-unstyled components text-white">
                 <li class="">
-                    <a class="text-white" data-toggle="modal" data-target="#folderModal" data-whatever="@mdo">
+                    <a class="text-white" href="{{ add_folder }}">
                     <i class="fas fa-folder-plus mr15 lightgray"></i>Folder</a>
                 </li>
                 <li class="">
-                    <a class="text-white" data-toggle="modal" data-target="#fileModal">
+                    <a class="text-white">
                     <i class="fas fa-file-upload ml-1 mr15 lightgray"></i>Upload File</a>
                 </li>
             </ul>
@@ -52,63 +52,6 @@
         <div id="content">
             {% block content %}
             {% endblock %}
-            <div class="modal fade" id="folderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Create New Folder</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="saveFolder">Send message</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel1">New message</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name1">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text1"></textarea>
-                        </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="saveFile">Send message</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -135,29 +78,6 @@
         $("#sidebar").mCustomScrollbar({
              theme: "minimal"
         });
-      });
-      $('#folderModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          var modal = $(this)
-          // modal.find('.modal-title').text('New message to ' + recipient)
-          modal.find('.modal-body input').val(recipient)
-          });
-      $("#saveFolder").click(function(){
-          alert('nothing');
-          $("#folderModal").modal('hide');
-      });
-
-      $('#fileModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* attributes
-          var modal = $(this)
-          // modal.find('.modal-title').text('New message to ' + recipient)
-          modal.find('.modal-body input').val(recipient)
-      });
-      $("#saveFile").click(function(){
-          alert('nothing');
-          $("#fileModal").modal('hide');
       });
 
       $("#time_sort").click(function(event){

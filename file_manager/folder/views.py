@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.views.generic import ListView, CreateView
 
 from file_manager.folder.forms import FolderForm
@@ -9,6 +10,14 @@ from file_manager.file.models import File
 class FolderCreateView(CreateView):
     form_class = FolderForm
     template_name = 'folder/add.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['submit_url'] = reverse('folder:add')
+        return context
+
+    def get_success_url(self):
+        return reverse('folder:list')
 
 
 class FolderListView(ListView):
@@ -48,7 +57,7 @@ class FolderListView(ListView):
             file_query = file_query.order_by('name')
         context['file_list'] = file_query
 
-        context['folder_form'] = FolderForm()
-        context['file_form'] = FileForm()
+        context['add_folder'] = reverse('folder:add')
+        context['add_file'] = reverse('file:add')
 
         return context
