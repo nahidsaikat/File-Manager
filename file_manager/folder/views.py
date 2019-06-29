@@ -2,6 +2,7 @@ from django.views.generic import ListView, CreateView
 
 from file_manager.folder.forms import FolderForm
 from file_manager.folder.models import Folder
+from file_manager.file.forms import FileForm
 from file_manager.file.models import File
 
 
@@ -46,5 +47,8 @@ class FolderListView(ListView):
         elif order_by == 'name':
             file_query = file_query.order_by('name')
         context['file_list'] = file_query
+
+        context['folder_form'] = FolderForm()
+        context['file_form'] = FileForm()
 
         return context

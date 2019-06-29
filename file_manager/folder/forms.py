@@ -6,4 +6,4 @@ from file_manager.folder.models import Folder
 class FolderForm(ModelForm):
     class Meta:
         model = Folder
-        fields = ["name"]
+        fields = ['name', 'text_color', 'parent']
