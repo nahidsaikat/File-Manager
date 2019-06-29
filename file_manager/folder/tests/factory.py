@@ -10,5 +10,5 @@ class FolderFactory(DjangoModelFactory):
     class Meta:
         model = Folder
 
-    name = fake.name()
+    name = fake.name().replace(' ', '_')
     text_color = '#000000'

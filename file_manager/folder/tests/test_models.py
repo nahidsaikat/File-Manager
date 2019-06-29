@@ -11,11 +11,11 @@ class BaseFixture:
 
     @pytest.fixture
     def folder_1(self, db):
-        return FolderFactory(name=fake.name())
+        return FolderFactory(name=fake.name().replace(' ', '_'))
 
     @pytest.fixture
     def folder_2(self, db):
-        return FolderFactory(name=fake.name())
+        return FolderFactory(name=fake.name().replace(' ', '_'))
 
 
 class TestFolder(BaseFixture):
