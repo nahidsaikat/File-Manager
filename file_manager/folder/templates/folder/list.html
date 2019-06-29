@@ -13,7 +13,11 @@
                 <a href="{{ folder.get_list_url }}?id={{ folder.pk }}" class="">
                     <div class="card card-style">
                         <div class="card-body">
-                            <h6 class="card-title"><i class="fas fa-folder"></i><span style="color:{{ folder.text_color }};" class="ml20">{{ folder.name|truncatechars:18 }}</span></h6>
+                            <h6 class="card-title"><i class="fas fa-folder"></i>
+                                <span style="color:{{ folder.text_color }};" class="ml20">
+                                    {{ folder.name|truncatechars:18 }}
+                                </span>
+                            </h6>
                         </div>
                     </div>
                 </a>
@@ -30,7 +34,13 @@
                 <a href="#" class="">
                     <div class="card card-style">
                         <div class="card-body">
-                            <h6 class="card-title"><i class="fas fa-folder"></i>{{ file.name|truncatechars:18 }}</h6>
+                            <p class="card-text"><small class="text-muted">
+                                This is a wider card with supporting text below as a natural lead-in to additional content.
+                                This is a wider card with supporting text below as a natural lead-in to additional content.
+                                This is a wider card with supporting text below as a natural lead-in to additional content.
+                            </small></p>
+                            <h6 class="card-title"><i class="fas fa-file{{ file.icon }}"></i>
+                                <span class="ml20">{{ file.name|truncatechars:18 }}</span></h6>
                         </div>
                     </div>
                 </a>

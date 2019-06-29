@@ -20,3 +20,30 @@ class File(models.Model):
     @property
     def extension(self):
         return str(self.name).split('.')[-1]
+
+    @property
+    def icon(self):
+        if self.extension == 'txt':
+            return '-alt'
+        elif self.extension == 'pdf':
+            return '-pdf'
+        elif self.extension in ['doc', 'docs', 'docx', 'odt', 'dot', 'dotm', 'dotx']:
+            return '-word'
+        elif self.extension in ['xls', 'xlsx', 'xlt']:
+            return '-excel'
+        elif self.extension in ['ppt', 'pptx', 'ppsx']:
+            return '-powerpoint'
+        elif self.extension in ['png', 'jpg', 'jpeg']:
+            return '-image'
+        elif self.extension in ['mp4', 'mkv', 'flv', 'vob', 'avi', 'wmv']:
+            return '-video'
+        elif self.extension in ['mp3', 'aa', 'aac', 'act', 'mmf', 'mpc']:
+            return '-audio'
+        elif self.extension in ['py', 'js', 'java', 'php', 'rb', 'html', 'css', 'htm']:
+            return '-code'
+        elif self.extension in ['zip', 'rar', 'iso', '7z', 'apk']:
+            return '-archive'
+        elif self.extension == 'csv':
+            return '-csv'
+        else:
+            return ''
