@@ -7,16 +7,35 @@
 {% block content %}
 
     <div class="container ml20 mt-3">
-        <h2>Folders</h2>
-        <div class="row justify-content-center">
+        <p class="text-muted">Folders</p>
+        <div class="row">
             {% for folder in  folder_list %}
                 <a href="#" class="">
                     <div class="card card-style">
                         <div class="card-body">
-                            <h6 class="card-title"><i class="fas fa-folder"></i><span style="color:{{ folder.text_color }};" class="ml20">{{ folder.name|truncatechars:18 }}</span?</h6>
+                            <h6 class="card-title"><i class="fas fa-folder"></i><span style="color:{{ folder.text_color }};" class="ml20">{{ folder.name|truncatechars:18 }}</span></h6>
                         </div>
                     </div>
                 </a>
+            {% empty %}
+                <p class="text-muted ml40">Sorry, no folders here.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container ml20 mt-3">
+        <p class="text-muted">Files</p>
+        <div class="row">
+            {% for file in  file_list %}
+                <a href="#" class="">
+                    <div class="card card-style">
+                        <div class="card-body">
+                            <h6 class="card-title"><i class="fas fa-folder"></i>{{ file.name|truncatechars:18 }}</h6>
+                        </div>
+                    </div>
+                </a>
+            {% empty %}
+                <p class="text-muted ml40">Sorry, no files in this folder.</p>
             {% endfor %}
         </div>
     </div>

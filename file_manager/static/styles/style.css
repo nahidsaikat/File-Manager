@@ -40,12 +40,16 @@ hr {
     text-align: center;
 }
 
-.ml220 {
-    margin-left: 260px;
-}
-
 .ml20 {
     margin-left: 20px;
+}
+
+.ml40 {
+    margin-left: 40px;
+}
+
+.ml220 {
+    margin-left: 260px;
 }
 
 .mr15 {
