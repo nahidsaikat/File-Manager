@@ -1,0 +1,111 @@
+body {
+    background: white;
+}
+
+footer {
+    position: fixed;
+    height: 55px;
+    bottom: 0;
+    width: 100%;
+    background-color: #2e302a;
+}
+
+.bottom {
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    width: 260px;
+    padding-right: 15px;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 2px solid #fdfcfc1a;
+  }
+
+.large-font {
+    font-size: 27px;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    width: 100%;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.ml220 {
+    margin-left: 260px;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.mr15 {
+    margin-right: 15px;
+}
+
+.container {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.container-style {
+    margin-left: 225px;
+    margin-top: 85px;
+    margin-bottom: 15px;
+}
+
+.card-style {
+    width: 250px !important;
+    margin: 15px;
+    padding: 2px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 260px;
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #848484;
+    color: rgb(0, 0, 0);
+    transition: all 0.3s;
+}
+
+.brand {
+    padding-top: 15px;
+}
+
+.lightgray {
+    color: lightgray;
+}
+
+ul li a {
+    display:block;
+}
+
+ul li:hover a, ul li:focus a {
+    background-color:#3b7b86;
+}
+
+ul li a {
+    padding: 7px 0px 5px 30px;
+}
