@@ -25,3 +25,12 @@ class Folder(models.Model):
     @property
     def get_list_url(self):
         return reverse('folder:list')
+
+    def parent_url(self):
+        url_list = []
+        temp = self
+        while(temp.parent):
+            temp = temp.parent
+            url_list.append(reverse('folder:list') + '?id=' + str(temp.pk))
+
+        return url_list

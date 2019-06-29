@@ -34,3 +34,9 @@ class TestFolder(BaseFixture):
         folder_2.save()
 
         assert folder_2.depth == 1
+
+    def test_parent_url(self, folder_1, folder_2):
+        folder_2.parent = folder_1
+        folder_2.save()
+
+        assert folder_2.parent_url() == ['/?id=1']
