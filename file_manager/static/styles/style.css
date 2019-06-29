@@ -109,3 +109,12 @@ ul li:hover a, ul li:focus a {
 ul li a {
     padding: 7px 0px 5px 30px;
 }
+
+.folder {
+    outline: 1px solid black;
+    outline-offset: 15px;
+}
+
+.card-title {
+    margin-bottom: 0rem !important;
+}

@@ -10,6 +10,8 @@ class FolderCreateView(CreateView):
 
 
 class FolderListView(ListView):
-    queryset = Folder.objects.all()
     context_object_name = 'folder_list'
     template_name = 'folder/list.html'
+
+    def get_queryset(self):
+        return Folder.objects.filter(parent=None).all()

@@ -6,5 +6,5 @@ app_name = 'folder'
 
 urlpatterns = [
     path('add/', views.FolderCreateView.as_view(), name='add'),
-    path('list/', views.FolderListView.as_view(), name='list'),
+    path('', views.FolderListView.as_view(), name='list'),
 ]

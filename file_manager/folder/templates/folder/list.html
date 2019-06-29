@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-the list page.
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container ml20 mt-3">
+        <h2>Folders</h2>
+        <div class="row justify-content-center">
+            {% for folder in  folder_list %}
+                <a href="#" class="">
+                    <div class="card card-style">
+                        <div class="card-body">
+                            <h6 class="card-title"><i class="fas fa-folder"></i><span style="color:{{ folder.text_color }};" class="ml20">{{ folder.name|truncatechars:18 }}</span?</h6>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

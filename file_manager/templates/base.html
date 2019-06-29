@@ -32,11 +32,11 @@
             <ul class="list-unstyled components text-white">
                 <li class="">
                     <a class="text-white" data-toggle="modal" data-target="#folderModal" data-whatever="@mdo">
-                    <i class="fas fa-folder-plus mr15 lightgray"></i>New Folder</a>
+                    <i class="fas fa-folder-plus mr15 lightgray"></i>Folder</a>
                 </li>
                 <li class="">
                     <a class="text-white" data-toggle="modal" data-target="#fileModal">
-                    <i class="fas fa-file-medical ml-1 mr15 lightgray"></i>New File</a>
+                    <i class="fas fa-file-upload ml-1 mr15 lightgray"></i>Upload File</a>
                 </li>
             </ul>
 
@@ -49,7 +49,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Create New Folder</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -126,7 +126,7 @@
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var modal = $(this)
-          modal.find('.modal-title').text('New message to ' + recipient)
+          // modal.find('.modal-title').text('New message to ' + recipient)
           modal.find('.modal-body input').val(recipient)
           });
       $("#saveFolder").click(function(){
@@ -138,7 +138,7 @@
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var modal = $(this)
-          modal.find('.modal-title').text('New message to ' + recipient)
+          // modal.find('.modal-title').text('New message to ' + recipient)
           modal.find('.modal-body input').val(recipient)
       });
       $("#saveFile").click(function(){
