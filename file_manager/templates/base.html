@@ -31,34 +31,21 @@
 
             <ul class="list-unstyled components text-white">
                 <li class="">
-                    <a class="text-white" href="#">
-                    <i class="fas fa-chevron-right mr15 lightgray"></i>New Folder</a>
+                    <a class="text-white" data-toggle="modal" data-target="#folderModal" data-whatever="@mdo">
+                    <i class="fas fa-folder-plus mr15 lightgray"></i>New Folder</a>
                 </li>
                 <li class="">
-                    <a class="text-white" href="#">
-                    <i class="fas fa-chevron-right mr15 lightgray"></i>New File</a>
+                    <a class="text-white" data-toggle="modal" data-target="#fileModal">
+                    <i class="fas fa-file-medical ml-1 mr15 lightgray"></i>New File</a>
                 </li>
             </ul>
-
-<!--            <hr class="bottom"></hr>-->
-<!--            <div class="text-center bottom">-->
-<!--                <a class="text-white" href="/">-->
-<!--                    <i class="fas fa-plus mr15"></i>Add Link-->
-<!--                </a>-->
-<!--            </div>-->
 
         </nav>
         <!-- Page Content -->
         <div id="content">
             {% block content %}
             {% endblock %}
-
-            <div class="ml220">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="folderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -81,10 +68,38 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button>
+                        <button type="button" class="btn btn-primary" id="saveFolder">Send message</button>
                     </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel1">New message</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name1">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text1"></textarea>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="saveFile">Send message</button>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,32 +115,36 @@
     <script src="/jquery/js/popper.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script defer src="/fontawesome/js/all.js"></script>
-<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>-->
 
     <script>
-    $(document).ready(function () {
+      $(document).ready(function () {
         $("#sidebar").mCustomScrollbar({
              theme: "minimal"
         });
-        $('#sidebarCollapse').on('click', function () {
-            // open or close navbar
-            $('#sidebar').toggleClass('active');
-            // close dropdowns
-            $('.collapse.in').toggleClass('in');
-            // and also adjust aria-expanded attributes we use for the open/closed arrows
-            // in our CSS
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
-    });
-    $('#exampleModal').on('show.bs.modal', function (event) {
+      });
+      $('#folderModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var modal = $(this)
           modal.find('.modal-title').text('New message to ' + recipient)
           modal.find('.modal-body input').val(recipient)
-        })
+          });
+      $("#saveFolder").click(function(){
+          alert('nothing');
+          $("#folderModal").modal('hide');
+      });
+
+      $('#fileModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this)
+          modal.find('.modal-title').text('New message to ' + recipient)
+          modal.find('.modal-body input').val(recipient)
+      });
+      $("#saveFile").click(function(){
+          alert('nothing');
+          $("#fileModal").modal('hide');
+      });
     </script>
 
     {% block js %}{% endblock %}
