@@ -28,3 +28,6 @@ class TestFile(BaseFactory):
 
     def test_extension(self, file_2):
         assert file_2.extension == file_2.name.split('.')[-1]
+
+    def test_icon(self, file_2):
+        assert file_2.icon == '-pdf'
