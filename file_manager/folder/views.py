@@ -21,6 +21,13 @@ class FolderListView(ListView):
             queryset = queryset.filter(parent__pk=pk)
         else:
             queryset = queryset.filter(parent=None)
+
+        order_by = self.request.GET.get('sort')
+        if order_by == 'time':
+            queryset = queryset.order_by('-created_at')
+        elif order_by == 'name':
+            queryset = queryset.order_by('name')
+
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -32,6 +39,12 @@ class FolderListView(ListView):
             file_query = file_query.filter(folder__pk=pk)
         else:
             file_query = file_query.filter(folder=None)
+
+        order_by = self.request.GET.get('sort')
+        if order_by == 'time':
+            file_query = file_query.order_by('-created_at')
+        elif order_by == 'name':
+            file_query = file_query.order_by('name')
         context['file_list'] = file_query
 
         return context
