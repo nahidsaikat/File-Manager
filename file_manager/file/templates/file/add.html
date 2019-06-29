@@ -1,5 +1,28 @@
 {% extends 'base.html' %}
 
+{% block css %}
+
+{% endblock %}
+
 {% block content %}
 
+    <div class="container ml20 mt-3">
+        <p class="text-muted">Create New File</p>
+        <div class="row">
+            <form action="{{ submit_url }}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                {{ form }}
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+
+</script>
 {% endblock %}
