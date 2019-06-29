@@ -28,3 +28,9 @@ class TestFolder(BaseFixture):
         folder_2.save()
 
         assert str(folder_2) == f'{folder_1.name}::{folder_2.name}'
+
+    def test_folder_depth(self, folder_1, folder_2):
+        folder_2.parent = folder_1
+        folder_2.save()
+
+        assert folder_2.depth == 1

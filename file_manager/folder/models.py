@@ -13,3 +13,10 @@ class Folder(models.Model):
         if self.parent:
             full_name = f'{self.parent}::' + full_name
         return full_name
+
+    @property
+    def depth(self):
+        if not self.parent:
+            return 0
+        else:
+            return self.parent.depth + 1
