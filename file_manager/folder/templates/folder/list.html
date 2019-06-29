@@ -10,7 +10,7 @@
         <p class="text-muted">Folders</p>
         <div class="row">
             {% for folder in  folder_list %}
-                <a href="#" class="">
+                <a href="{{ folder.get_list_url }}?id={{ folder.pk }}" class="">
                     <div class="card card-style">
                         <div class="card-body">
                             <h6 class="card-title"><i class="fas fa-folder"></i><span style="color:{{ folder.text_color }};" class="ml20">{{ folder.name|truncatechars:18 }}</span></h6>
@@ -40,5 +40,10 @@
         </div>
     </div>
 
+{% endblock %}
 
+{% block js %}
+<script>
+
+</script>
 {% endblock %}

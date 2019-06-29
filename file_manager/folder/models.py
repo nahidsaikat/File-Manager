@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Folder(models.Model):
@@ -20,3 +21,7 @@ class Folder(models.Model):
             return 0
         else:
             return self.parent.depth + 1
+
+    @property
+    def get_list_url(self):
+        return reverse('folder:list')
