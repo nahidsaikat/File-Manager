@@ -4,7 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+Django = "*"
+factory-boy = "*"
+pytest-django = "*"
+pytest = "==4.6.4"
 
 [dev-packages]
 
