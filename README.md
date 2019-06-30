@@ -16,4 +16,7 @@ A django app to store and manage directory and files.
 * `pipenv shell`
 * `python manage.py migrate`
 * `python manage.py createsuperuser`
-* `python manage.py runserver 0.0.0.0:8000`
+* `python manage.py runserver 0.0.0.0:8000`  
+
+
+* `pytest` for running test
