@@ -8,6 +8,7 @@ Django = "*"
 factory-boy = "*"
 pytest-django = "*"
 pytest = "==4.6.4"
+django-widget-tweaks = "*"
 
 [dev-packages]
 
