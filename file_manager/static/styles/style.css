@@ -40,6 +40,10 @@ hr {
     text-align: center;
 }
 
+.mt40 {
+    margin-top: 40px;
+}
+
 .ml20 {
     margin-left: 20px;
 }
@@ -54,6 +58,10 @@ hr {
 
 .mr15 {
     margin-right: 15px;
+}
+
+.mb30 {
+    margin-bottom: 30px;
 }
 
 .mb55 {
