@@ -19,6 +19,10 @@ class FileCreateView(CreateView):
     def get_success_url(self):
         return reverse('folder:list')
 
+    def post(self, request, *args, **kwargs):
+        import pdb;pdb.set_trace()
+        return super().post(request=request, args=args, **kwargs)
+
 
 class FileListView(ListView):
     queryset = File.objects.all()

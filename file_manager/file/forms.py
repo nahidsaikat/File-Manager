@@ -6,4 +6,4 @@ from file_manager.file.models import File
 class FileForm(ModelForm):
     class Meta:
         model = File
-        fields = ['name', 'folder']
+        fields = ['folder', 'file']

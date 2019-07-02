@@ -6,12 +6,16 @@ from file_manager.folder.models import Folder
 class File(models.Model):
     name = models.CharField(max_length=128)
     folder = models.ForeignKey(Folder, on_delete=models.CASCADE)
-    path = models.CharField(max_length=128, blank=True)
+    file = models.FileField(upload_to='documents/')
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
         return f'{self.name}'
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        self.name = self.file.name
+        return super().save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)
 
     @property
     def full_path(self):

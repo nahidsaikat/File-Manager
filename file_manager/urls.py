@@ -31,3 +31,5 @@ if settings.DEBUG:
         re_path(r'^static/(?P<path>.*)$', views.serve),
         re_path(r'^(?P<path>.*)$', views.serve),
     ]
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
