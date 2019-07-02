@@ -12,6 +12,8 @@ class FileCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['submit_url'] = reverse('file:add')
+        context['add_folder'] = reverse('folder:add')
+        context['add_file'] = reverse('file:add')
         return context
 
     def get_success_url(self):
