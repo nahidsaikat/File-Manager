@@ -52,8 +52,8 @@ hr {
     margin-left: 40px;
 }
 
-.ml220 {
-    margin-left: 260px;
+.ml290 {
+    margin-left: 290px;
 }
 
 .mr15 {
@@ -64,8 +64,8 @@ hr {
     margin-bottom: 30px;
 }
 
-.mb55 {
-    margin-bottom: 55px;
+.mb60 {
+    margin-bottom: 60px;
 }
 
 .container {
@@ -96,7 +96,7 @@ a {
 
 #sidebar {
     width: 260px;
-    /*position: fixed;*/
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
