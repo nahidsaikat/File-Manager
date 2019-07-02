@@ -31,19 +31,19 @@
         <p class="text-muted">Files</p>
         <div class="row">
             {% for file in  file_list %}
-                <a href="#" class="">
-                    <div class="card card-style">
-                        <div class="card-body">
-                            <p class="card-text"><small class="text-muted">
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                            </small></p>
-                            <h6 class="card-title"><i class="fas fa-file{{ file.icon }}"></i>
-                                <span class="ml20">{{ file.name|truncatechars:18 }}</span></h6>
-                        </div>
+                <div class="card card-style">
+                    <div class="card-body">
+                        <p class="card-text"><small class="text-muted">
+                            This is a wider card with supporting text below as a natural lead-in to additional content.
+                            This is a wider card with supporting text below as a natural lead-in to additional content.
+                            This is a wider card with supporting text below as a natural lead-in to additional content.
+                        </small></p>
+                        <h6 class="card-title"><i class="fas fa-file{{ file.icon }}"></i>
+                            <span class="ml5 mr15">{{ file.name|truncatechars:18 }}</span>
+                            <span class="float-right"><a href="#"><i class="fas fa-download"></i></a></span>
+                        </h6>
                     </div>
-                </a>
+                </div>
             {% empty %}
                 <p class="text-muted ml40">Sorry, no files in this folder.</p>
             {% endfor %}
