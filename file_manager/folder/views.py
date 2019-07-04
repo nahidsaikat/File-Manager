@@ -46,20 +46,41 @@ class FolderListView(ListView):
         context = super().get_context_data(object_list=object_list, **kwargs)
 
         pk = self.request.GET.get('id')
+
+        context['file_list'] = self.get_file_query(pk)
+        context['add_folder'] = reverse('folder:add')
+        context['add_file'] = reverse('file:add')
+        context['parent_folder'] = self.get_parent_folder_link(pk)
+
+        return context
+
+    def get_file_query(self, pk):
         file_query = File.objects.all()
         if pk:
             file_query = file_query.filter(folder__pk=pk)
         else:
             file_query = file_query.filter(folder=None)
-
         order_by = self.request.GET.get('sort')
         if order_by == 'time':
             file_query = file_query.order_by('-created_at')
         elif order_by == 'name':
             file_query = file_query.order_by('name')
-        context['file_list'] = file_query
+        return file_query
 
-        context['add_folder'] = reverse('folder:add')
-        context['add_file'] = reverse('file:add')
-
-        return context
+    @staticmethod
+    def get_parent_folder_link(pk):
+        parent_folder = []
+        if pk:
+            folder = Folder.objects.get(pk=pk)
+            parent_folder.append({
+                'text': folder.name,
+                'link': reverse('folder:list') + f'?id={folder.pk}',
+            })
+            while folder.parent:
+                parent_folder.append({
+                    'text': folder.parent.name,
+                    'link': reverse('folder:list') + f'?id={folder.parent.pk}',
+                })
+                folder = folder.parent
+            parent_folder.reverse()
+        return parent_folder

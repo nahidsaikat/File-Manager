@@ -51,8 +51,17 @@
         <!-- Page Content -->
         <div id="content">
             <div class="ml290 mb60">
-            {% block content %}
-            {% endblock %}
+                <div class="container ml20 mt-3">
+                    {% for link in parent_folder %}
+                        <a href="{{ link.link }}"><span class="text-info">{{ link.text }}</span></a>
+                        {% if not forloop.last %}
+                            <span class="mlr2 text-info">/</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                {% block content %}
+                {% endblock %}
             </div>
         </div>
     </div>
