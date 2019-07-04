@@ -21,3 +21,19 @@ A django app to store and manage directory and files.
 * `python manage.py runserver 0.0.0.0:8000`  
 #
 * `pytest` for running test
+
+# Screen Shots
+* Folder Create Interface
+![Folder Create](https://raw.githubusercontent.com/nahidsaikat/File-Manager/master/docs/images/create_folder.png)
+
+
+* File Create Interface
+![File Create](https://raw.githubusercontent.com/nahidsaikat/File-Manager/master/docs/images/create_file.png)
+
+
+* Folder View Interface 1
+![Folder View](https://raw.githubusercontent.com/nahidsaikat/File-Manager/master/docs/images/view_folder_1.png)
+
+
+* Folder View Interface 2
+![Folder View](https://raw.githubusercontent.com/nahidsaikat/File-Manager/master/docs/images/view_folder_2.png)
