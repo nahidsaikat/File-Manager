@@ -2,8 +2,10 @@
 A django app to store and manage directory and files.
 
 # Dependencies
+#### Main
 * Python == 3.7.3
 * Django == 2.2.2
+#### Test
 * Pytest == 4.6.4
 * Pytest-Django == 3.5.0
 
@@ -17,6 +19,5 @@ A django app to store and manage directory and files.
 * `python manage.py migrate`
 * `python manage.py createsuperuser`
 * `python manage.py runserver 0.0.0.0:8000`  
-
-
+#
 * `pytest` for running test
