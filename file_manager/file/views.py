@@ -1,8 +1,8 @@
 import os
+from wsgiref.util import FileWrapper
 
 from django.http import HttpResponse
 from django.urls import reverse
-from django.utils.encoding import smart_str
 from django.views.generic import CreateView, ListView
 from django.views.generic.base import View
 
@@ -38,8 +38,9 @@ class FileDownloadView(View):
 
     def get(self, request, pk):
         file = File.objects.filter(pk=pk).first()
-        response = HttpResponse(content_type='application/force-download')
-        response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(file.name if file else 'sample.txt')
-        response['X-Sendfile'] = smart_str(file.file.path)
-        response['Content-Length'] = os.path.getsize(file.file.path)
+        filename = file.file.path
+        wrapper = FileWrapper(file.file)
+        response = HttpResponse(wrapper, content_type='text/plain')
+        response['Content-Disposition'] = 'attachment; filename=%s' % file.name
+        response['Content-Length'] = os.path.getsize(filename)
         return response
