@@ -1,3 +1,5 @@
+import os
+
 from django.http import HttpResponse
 from django.urls import reverse
 from django.utils.encoding import smart_str
@@ -39,4 +41,5 @@ class FileDownloadView(View):
         response = HttpResponse(content_type='application/force-download')
         response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(file.name if file else 'sample.txt')
         response['X-Sendfile'] = smart_str(file.file.path)
+        response['Content-Length'] = os.path.getsize(file.file.path)
         return response
