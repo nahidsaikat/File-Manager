@@ -37,3 +37,9 @@ A django app to store and manage directory and files.
 
 * Folder View Interface 2
 ![Folder View](https://raw.githubusercontent.com/nahidsaikat/File-Manager/master/docs/images/view_folder_2.png)
+
+
+# License
+[MIT](https://github.com/nahidsaikat/File-Manager/blob/master/LICENSE)
+
+Copyright (c) 2019 [MD. Nahidur Rahman](https://nahidsaikat.com/)
