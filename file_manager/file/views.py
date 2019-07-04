@@ -1,5 +1,8 @@
+from django.http import HttpResponse
 from django.urls import reverse
+from django.utils.encoding import smart_str
 from django.views.generic import CreateView, ListView
+from django.views.generic.base import View
 
 from file_manager.file.forms import FileForm
 from file_manager.file.models import File
@@ -28,3 +31,13 @@ class FileListView(ListView):
     queryset = File.objects.all()
     context_object_name = 'file_list'
     template_name = 'file/list.html'
+
+
+class FileDownloadView(View):
+
+    def get(self, request, pk):
+        file = File.objects.filter(pk=pk).first()
+        response = HttpResponse(content_type='application/force-download')
+        response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(file.name if file else 'sample.txt')
+        response['X-Sendfile'] = smart_str(file.file.path)
+        return response
