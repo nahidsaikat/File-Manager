@@ -23,7 +23,6 @@ class FileCreateView(CreateView):
         return reverse('folder:list')
 
     def post(self, request, *args, **kwargs):
-        import pdb;pdb.set_trace()
         return super().post(request=request, args=args, **kwargs)
 
 

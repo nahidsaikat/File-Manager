@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from file_manager.folder.models import Folder
 
@@ -12,6 +13,10 @@ class File(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+    @property
+    def get_download_url(self):
+        return reverse('file:download', args=[self.pk])
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.name = self.file.name
