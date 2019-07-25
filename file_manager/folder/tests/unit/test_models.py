@@ -39,4 +39,4 @@ class TestFolder(BaseFixture):
         folder_2.parent = folder_1
         folder_2.save()
 
-        assert folder_2.parent_url() == ['/?id=1']
+        assert folder_2.parent_url() == ['/folder/?id=1']
