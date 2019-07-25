@@ -19,7 +19,8 @@ class File(models.Model):
         return reverse('file:download', args=[self.pk])
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        self.name = self.file.name
+        if not self.name:
+            self.name = self.file.name
         return super().save(force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields)
 
     @property

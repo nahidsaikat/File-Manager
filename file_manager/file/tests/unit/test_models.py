@@ -11,11 +11,11 @@ class BaseFactory:
 
     @pytest.fixture
     def file_1(self, db):
-        return FileFactory(name=fake.name().replace(' ', '_')+'.txt')
+        return FileFactory(name=str(fake.name().replace(' ', '_')+'.txt'))
 
     @pytest.fixture
     def file_2(self, db):
-        return FileFactory(name=fake.name().replace(' ', '_')+'.pdf')
+        return FileFactory(name=str(fake.name().replace(' ', '_')+'.pdf'))
 
 
 class TestFile(BaseFactory):

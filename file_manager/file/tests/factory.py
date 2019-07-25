@@ -15,4 +15,4 @@ class FileFactory(DjangoModelFactory):
 
     name = fake.name().replace(' ', '_')
     folder = factory.SubFactory(FolderFactory)
-    path = str(settings.BASE_DIR)
+    file = str(settings.MEDIA_ROOT)
