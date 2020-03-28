@@ -42,4 +42,4 @@ A django app to store and manage directory and files.
 # License
 [MIT](https://github.com/nahidsaikat/File-Manager/blob/master/LICENSE)
 
-Copyright (c) 2019 [MD. Nahidur Rahman](https://nahidsaikat.com/)
+Copyright (c) 2020 [MD. Nahidur Rahman](https://nahidsaikat.com/)
